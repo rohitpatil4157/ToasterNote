@@ -49,7 +49,7 @@ function clipBoard(){
     let copyBtn = document.querySelectorAll('.material-symbols-outlined')
     
     Array.from(Notes).forEach((e,index)=>{
-        Notes[index].addEventListener('click', ()=>{
+        Notes[index].addEventListener('dblclick', ()=>{
 
             copyBtn[index].classList.toggle('goUp')
             navigator.clipboard.writeText(notesTxt[index].innerText);
