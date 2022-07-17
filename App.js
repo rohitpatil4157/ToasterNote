@@ -57,7 +57,7 @@ function clipBoard(){
 
             setTimeout(() => {
                 copyBtn[index].classList.remove('goUp');
-            }, 1200)
+            }, 1000)
         })
     })
 
