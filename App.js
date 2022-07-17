@@ -37,7 +37,8 @@ addBtn.addEventListener('click', () => {
     localStorage.setItem('notes', JSON.stringify(notesObj))
     AddXt.value = ""
     showNote();
-    Music.play()
+    Music.play();
+    clipBoard();
 
 
 })
@@ -62,7 +63,7 @@ function clipBoard(){
 
 }
 
-setInterval(clipBoard, 2000);
+// setInterval(clipBoard, 2000);
 
 
 function showNote() {
