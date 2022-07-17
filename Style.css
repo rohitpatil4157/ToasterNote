@@ -156,6 +156,7 @@ body::-webkit-scrollbar-thumb {
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 0px 100vmax rgba(74, 74, 255, 0.691);
+    pointer-events: none;
     /* z-index: -10; */
 }
 
