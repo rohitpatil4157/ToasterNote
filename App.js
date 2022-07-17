@@ -1,5 +1,6 @@
 console.log('Hello');
 showNote();
+clipBoard();
 
 let Music = new Audio('./Popup.mp3')
 let addBtn = document.querySelector('#addBtn');
@@ -35,12 +36,33 @@ addBtn.addEventListener('click', () => {
     notesObj.push(AddXt.value);
     localStorage.setItem('notes', JSON.stringify(notesObj))
     AddXt.value = ""
-    showNote()
-    Music.play();
-    clipBoard();
+    showNote();
+    Music.play()
 
 
 })
+
+function clipBoard(){
+    let Notes = document.querySelectorAll('.notes');
+    let notesTxt = document.querySelectorAll('.notesTxt');
+    let copyBtn = document.querySelectorAll('.material-symbols-outlined')
+    
+    Array.from(Notes).forEach((e,index)=>{
+        Notes[index].addEventListener('click', ()=>{
+
+            copyBtn[index].classList.toggle('goUp')
+            navigator.clipboard.writeText(notesTxt[index].innerText);
+
+
+            setTimeout(() => {
+                copyBtn[index].classList.remove('goUp');
+            }, 1200)
+        })
+    })
+
+}
+
+setInterval(clipBoard, 2000);
 
 
 function showNote() {
@@ -131,35 +153,6 @@ function getTime() {
     // let TimesObj;
 
 }
-
-
-let Notes = document.querySelectorAll('.notes');
-let notesTxt = document.querySelectorAll('.notesTxt');
-let copyBtn = document.querySelectorAll('.material-symbols-outlined')
-// console.log(copyBtn)
-
-function clipBoard(){
-    Array.from(Notes).forEach((e,index)=>{
-    Notes[index].addEventListener('click', ()=>{
-
-        copyBtn[index].classList.toggle('goUp')
-        navigator.clipboard.writeText(notesTxt[index].innerText);
-
-
-        setTimeout(() => {
-            copyBtn[index].classList.remove('goUp');
-        }, 1500)
-    })
-})
-}
-setInterval(clipBoard(), 1000);
-
-
-
-
-
-
-
 
 
 
