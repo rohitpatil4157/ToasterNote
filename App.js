@@ -36,7 +36,8 @@ addBtn.addEventListener('click', () => {
     localStorage.setItem('notes', JSON.stringify(notesObj))
     AddXt.value = ""
     showNote()
-    Music.play()
+    Music.play();
+    clipBoard();
 
 
 })
@@ -137,9 +138,9 @@ let notesTxt = document.querySelectorAll('.notesTxt');
 let copyBtn = document.querySelectorAll('.material-symbols-outlined')
 // console.log(copyBtn)
 
-
-Array.from(Notes).forEach((e,index)=>{
-    Notes[index].addEventListener('dblclick', ()=>{
+function clipBoard(){
+    Array.from(Notes).forEach((e,index)=>{
+    Notes[index].addEventListener('click', ()=>{
 
         copyBtn[index].classList.toggle('goUp')
         navigator.clipboard.writeText(notesTxt[index].innerText);
@@ -150,6 +151,10 @@ Array.from(Notes).forEach((e,index)=>{
         }, 1500)
     })
 })
+}
+setInterval(clipBoard(), 1000);
+
+
 
 
 
