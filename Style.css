@@ -125,7 +125,7 @@ body::-webkit-scrollbar-thumb {
 .container .notes:hover,
 .container .notes:active {
 
-    box-shadow: 5px 8px 5px #8446f7cc;
+    box-shadow: 5px 8px 5px #5a487b93;
     transform: translateY(-1.5%);
 }
 
