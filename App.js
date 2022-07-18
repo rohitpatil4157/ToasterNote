@@ -3,6 +3,7 @@ showNote();
 clipBoard();
 
 let Music = new Audio('./Popup.mp3')
+let Whoosh = new Audio('./Wooosh2.wav');
 let addBtn = document.querySelector('#addBtn');
 
 
@@ -114,6 +115,7 @@ function showNote() {
 
 
 function deleteNote(index) {
+    Whoosh.play();
     let notes = localStorage.getItem('notes');
     let Times = localStorage.getItem('Times');
 
