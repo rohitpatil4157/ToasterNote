@@ -54,7 +54,7 @@ function clipBoard(){
 
             copyBtn[index].classList.toggle('goUp')
             navigator.clipboard.writeText(notesTxt[index].innerText);
-            navigator.vibrate(1000)
+            navigator.vibrate(600)
 
 
             setTimeout(() => {
