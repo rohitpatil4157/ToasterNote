@@ -54,7 +54,7 @@ function clipBoard(){
 
             copyBtn[index].classList.toggle('goUp')
             navigator.clipboard.writeText(notesTxt[index].innerText);
-            navigator.vibrate(200)
+            navigator.vibrate(100)
 
 
             setTimeout(() => {
@@ -136,7 +136,7 @@ function deleteNote(index) {
         notesObj = JSON.parse(notes);
     }
     
-    navigator.vibrate(300)
+    navigator.vibrate(200)
     notesObj.splice(index, 1);
     TimesObj.splice(index, 1)
     localStorage.setItem('notes', JSON.stringify(notesObj));
