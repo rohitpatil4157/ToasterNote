@@ -139,6 +139,8 @@ function deleteNote(index) {
     localStorage.setItem('Times', JSON.stringify(TimesObj));
 
     showNote()
+    clipBoard()
+
 }
 
 
