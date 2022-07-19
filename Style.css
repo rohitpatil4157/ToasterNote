@@ -36,9 +36,11 @@ body::-webkit-scrollbar-thumb {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100%;
+    width: 99%;
     /* border: 1px solid white; */
+    margin: 0px auto;
     padding: 10px 0;
+    overflow: hidden;
 }
 
 .intro #AddXt {
@@ -356,14 +358,14 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
-/* @media only screen and (max-width: 390px) {
+@media only screen and (max-width: 390px) {
     .intro h1 {
         width: calc(11em - 30px);
     }
 
-    .warningX {
+/*     .warningX {
         width: calc(15em + 10%);
         height: 3%;
-    }
+    } */
 
-} */
+}
