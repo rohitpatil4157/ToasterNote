@@ -345,12 +345,11 @@ body::-webkit-scrollbar-thumb {
     }
 
     .intro h1 {
-        font-size: calc(1em + 80%);
-        font-size: 1.5em;
+        font-size: 5.9vw
     }
 
     .intro h1 i {
-        padding-left: 2px;
+        padding-left: 10px;
 
     }
 
