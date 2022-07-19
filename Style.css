@@ -342,30 +342,35 @@ body::-webkit-scrollbar-thumb {
 
     }
 }
-
-@media only screen and (max-width: 79em) {
+@media only screen and (max-width: 80em) {
     body {
         overflow-x: hidden;
     }
 
-    /* .intro h1 {
-        width: calc(85% - 6px);
-    } */
+    .intro h1 {
+        font-size: calc(1em + 12px);
+        font-size: calc(1em + 80%);
+    }
+
+    .intro h1 i {
+        padding-left: 2px;
+
+    }
 
     .container .notes {
         min-width: 88%;
         max-width: 88%;
     }
 }
-
+/* 
 @media only screen and (max-width: 390px) {
     .intro h1 {
         width: calc(11em - 30px);
     }
 
-/*     .warningX {
+    .warningX {
         width: calc(15em + 10%);
         height: 3%;
-    } */
+    }
 
-}
+} */
