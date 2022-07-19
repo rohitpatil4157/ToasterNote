@@ -64,13 +64,10 @@ body::-webkit-scrollbar-thumb {
 
 .intro h1 {
     color: white;
-    margin: 0.6em 14.125em;
-    padding: 10px;
+    margin: 0.6em auto;
     padding-bottom: 10px;
     border-bottom: 5px solid rgb(74, 74, 255);
-    display: flex;
-    width: calc(12em - 60px);
-    /* align-self: baseline; */
+   
 }
 
 .intro h1 i {
@@ -348,8 +345,8 @@ body::-webkit-scrollbar-thumb {
     }
 
     .intro h1 {
-        font-size: calc(1em + 12px);
         font-size: calc(1em + 80%);
+        font-size: 1.5em;
     }
 
     .intro h1 i {
