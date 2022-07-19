@@ -3,7 +3,7 @@ showNote();
 clipBoard();
 
 let Music = new Audio('./Popup.mp3')
-let Whoosh = new Audio('./Wooosh3.wav');
+let Whoosh = new Audio('./Wooosh3.mp3');
 let addBtn = document.querySelector('#addBtn');
 
 
