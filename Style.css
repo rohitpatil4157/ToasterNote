@@ -361,9 +361,9 @@ body::-webkit-scrollbar-thumb {
         width: calc(11em - 30px);
     }
 
-    .warningX {
+/*     .warningX {
         width: calc(15em + 10%);
         height: 3%;
-    }
+    } */
 
 }
