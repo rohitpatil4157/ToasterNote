@@ -107,12 +107,12 @@ function clipBoard(){
         
         Notes[index].addEventListener('dblclick', ()=>{
 
-            copyBtn[index].classList.toggle('goUp');
+            copyBtn[index+1].classList.toggle('goUp');
             navigator.clipboard.writeText(notesTxt[index].innerText);
             navigator.vibrate([50, 50, 50])
         
             setTimeout(() => {
-                copyBtn[index].classList.remove('goUp');
+                copyBtn[index+1].classList.remove('goUp');
                 
             }, 1200)
         })
