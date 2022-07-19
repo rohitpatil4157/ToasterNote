@@ -2,47 +2,101 @@ console.log('Hello');
 showNote();
 clipBoard();
 
-let Music = new Audio('./Popup.mp3')
+
+let Music = new Audio('./Popup.mp3');
 let Whoosh = new Audio('./Wooosh3.mp3');
 let addBtn = document.querySelector('#addBtn');
 
 
 
+function speakBro(){
+    let voices, speech;
+    speech = new SpeechSynthesisUtterance();
+
+    let notesTxt = document.querySelectorAll('.notesTxt');
+
+    Array.from(notesTxt).forEach((e,index)=>{
+        let soundBtn = document.querySelectorAll('.sound'); // =>
+
+        soundBtn[index].addEventListener('click', ()=>{
+            soundBtn[index].classList.add('bgShine')
+            speech.text = notesTxt[index].innerText;
+            // console.log(speech.text)
+            
+            window.speechSynthesis.addEventListener('voiceschanged', () => {
+                voices = window.speechSynthesis.getVoices();
+                speech.voice = voices[12];
+                window.speechSynthesis.speak(speech);
+                // console.log(e.name, ': ', index)
+            });
+
+            setTimeout(()=>{
+                soundBtn[index].classList.remove('bgShine');
+                
+            },2000)
+        })
+    })
+}
+
+// speakBro()
+// setInterval(speakBro, 100);
+
+function warn(text){
+    let warningBox = document.querySelector('.warning');
+    warningBox.children[1].innerText = text
+    warningBox.classList.add('warningX')
+    
+    setTimeout(()=>{
+        warningBox.classList.remove('warningX')
+    }, 1500)
+}
+
 addBtn.addEventListener('click', () => {
-    Music.play()
+    
+    
     let notes = localStorage.getItem('notes');
     let AddXt = document.querySelector('#AddXt');
     let Times = localStorage.getItem('Times');
-    let GT = getTime();
+    if(AddXt.value !== ""){
 
-    let TimesObj;
-    if (Times == null) {
-        TimesObj = []
+        let GT = getTime();
+
+        let TimesObj;
+        if (Times == null) {
+            TimesObj = []
+        }
+        else {
+            TimesObj = JSON.parse(Times)
+        }
+        TimesObj.push(GT);
+        localStorage.setItem('Times', JSON.stringify(TimesObj));
+
+
+        let notesObj;
+        if (notes === null || AddXt == "") {
+            notesObj = []
+        }
+        else {
+            notesObj = JSON.parse(notes);
+        }
+        
+        Music.play()
+        if(AddXt.value !== "" ){
+            
+        }
+        notesObj.push(AddXt.value);
+        localStorage.setItem('notes', JSON.stringify(notesObj))
+        AddXt.value = ""
+        showNote();
+        clipBoard()
     }
-    else {
-        TimesObj = JSON.parse(Times)
+    else{
+        // Empty notes aren't allowed
+       warn("Empty Notes aren't allowed :)")
     }
-    TimesObj.push(GT);
-    localStorage.setItem('Times', JSON.stringify(TimesObj));
-
-
-    let notesObj;
-    if (notes === null || AddXt == "") {
-        notesObj = []
-    }
-    else {
-        notesObj = JSON.parse(notes);
-    }
-
-    notesObj.push(AddXt.value);
-    localStorage.setItem('notes', JSON.stringify(notesObj))
-    AddXt.value = ""
-    showNote();
-    Music.play();
-    clipBoard();
-
 
 })
+
 
 function clipBoard(){
     let Notes = document.querySelectorAll('.notes');
@@ -50,22 +104,26 @@ function clipBoard(){
     let copyBtn = document.querySelectorAll('.material-symbols-outlined')
     
     Array.from(Notes).forEach((e,index)=>{
+        
         Notes[index].addEventListener('dblclick', ()=>{
 
-            copyBtn[index].classList.toggle('goUp')
+            copyBtn[index].classList.toggle('goUp');
             navigator.clipboard.writeText(notesTxt[index].innerText);
-            navigator.vibrate(80)
-
-
+            navigator.vibrate([50, 50, 50])
+        
             setTimeout(() => {
                 copyBtn[index].classList.remove('goUp');
-            }, 1000)
+                
+            }, 1200)
         })
+
     })
 
 }
 
-// setInterval(clipBoard, 2000);
+
+
+// setInterval(clipBoard, 5000);
 
 
 function showNote() {
@@ -109,6 +167,7 @@ function showNote() {
     let noteCard = document.querySelector('.container');
     noteCard.innerHTML = html
 
+
 }
 
 
@@ -116,7 +175,8 @@ function showNote() {
 
 
 function deleteNote(index) {
-    Whoosh.play();
+    
+    
     let notes = localStorage.getItem('notes');
     let Times = localStorage.getItem('Times');
 
@@ -135,15 +195,17 @@ function deleteNote(index) {
     else {
         notesObj = JSON.parse(notes);
     }
-    
-    navigator.vibrate(100)
+    // warn(`${notesObj[index]} Has been deleted`);
+    warn(`Your Note Has been deleted`);
+    navigator.vibrate(90)
+    Whoosh.play()
     notesObj.splice(index, 1);
     TimesObj.splice(index, 1)
     localStorage.setItem('notes', JSON.stringify(notesObj));
     localStorage.setItem('Times', JSON.stringify(TimesObj));
 
     showNote()
-    clipBoard()
+    clipBoard();
 
 }
 
@@ -163,10 +225,28 @@ function getTime() {
 
 
 
+    
 
 
 
 
+
+
+// function speakNote(text){
+//     let speech = new SpeechSynthesisUtterance();
+
+//     speech.text = text;
+//     speech.lang = 'en-US';
+//     speech.rate = 1;
+    
+//     let voices = [];
+//     voices = window.speechSynthesis.getVoices();
+//     console.log(voices)
+//     speech.voice = voices[1]
+
+//     window.speechSynthesis.speak(speech);
+    
+// }
 
 
 // Notes.addEventListener('dblclick', () => {
