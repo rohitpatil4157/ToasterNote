@@ -109,7 +109,7 @@ function clipBoard(){
 
             copyBtn[index+1].classList.toggle('goUp');
             navigator.clipboard.writeText(notesTxt[index].innerText);
-            navigator.vibrate([0, 100, 100])
+            navigator.vibrate([0, 200, 100])
         
             setTimeout(() => {
                 copyBtn[index+1].classList.remove('goUp');
