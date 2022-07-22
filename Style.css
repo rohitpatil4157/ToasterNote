@@ -385,9 +385,12 @@ body::-webkit-scrollbar-thumb {
     }
 }
 @media only screen and (max-width: 430px) {
+    body{
+        background-image: url('./16\ Backgrounds\ That\ Will\ Brighten\ Your\ Day\ Every\ Time\ You\ Check\ Your\ Phone.jfif');
+    }
     .intro h1{
         font-size: 6vmin;
-        mix-blend-mode : none;
+        mix-blend-mode : normal;
     }
     .warningX {
         top: 150px;
