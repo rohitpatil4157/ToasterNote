@@ -83,10 +83,15 @@ body::-webkit-scrollbar-thumb {
 }
 
 .intro h1 {
-    color: white;
+    color: rgb(25, 24, 24);
+    background-color: aliceblue;
+    border-radius: 100vmax;
     margin: 0.6em auto;
+    padding: 8px;
     padding-bottom: 10px;
     border-bottom: 5px solid rgb(74, 74, 255);
+    mix-blend-mode: difference;
+
    
 }
 
@@ -380,6 +385,10 @@ body::-webkit-scrollbar-thumb {
     }
 }
 @media only screen and (max-width: 430px) {
+    .intro h1{
+        font-size: 6vmin;
+        mix-blend-mode : none;
+    }
     .warningX {
         top: 150px;
         
