@@ -365,7 +365,8 @@ body::-webkit-scrollbar-thumb {
     }
 
     .intro h1 {
-        font-size: 5.9vw
+/*         font-size: 5.9vw */
+        font-size: 8vmin;
     }
 
     .intro h1 i {
