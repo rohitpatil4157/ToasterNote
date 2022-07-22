@@ -30,6 +30,8 @@ body::-webkit-scrollbar-thumb {
     border-radius: 5px;
     background-color: rgb(109, 147, 243);
 }
+
+
 .Video {
     position: absolute;
     content: '';
@@ -41,13 +43,11 @@ body::-webkit-scrollbar-thumb {
 
 }
 
-
 .Video video {
     position: relative;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    background-size: 100% 100%;
 
 }
 
