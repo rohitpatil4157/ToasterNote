@@ -31,7 +31,7 @@ body::-webkit-scrollbar-thumb {
     background-color: rgb(109, 147, 243);
 }
 
-.Video {
+/* .Video {
     position: absolute;
     content: '';
     width: 100%;
@@ -40,10 +40,10 @@ body::-webkit-scrollbar-thumb {
     mix-blend-mode: color-dodge;
     overflow: hidden;
 
-}
+} */
 
 
-.Video video {
+video {
     position: relative;
     width: 100%;
     height: 100%;
