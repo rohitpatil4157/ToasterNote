@@ -6,6 +6,7 @@ clipBoard();
 let Music = new Audio('./Popup.mp3');
 let Whoosh = new Audio('./Wooosh3.mp3');
 let addBtn = document.querySelector('#addBtn');
+let Video = document.querySelector('.Video').children[0];
 
 
 
@@ -79,7 +80,7 @@ addBtn.addEventListener('click', () => {
         else {
             notesObj = JSON.parse(notes);
         }
-        
+        Video.play()
         Music.play()
         if(AddXt.value !== "" ){
             
@@ -92,6 +93,7 @@ addBtn.addEventListener('click', () => {
     }
     else{
         // Empty notes aren't allowed
+        Video.pause()
        warn("Empty Notes aren't allowed :)")
     }
 
