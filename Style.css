@@ -391,6 +391,8 @@ body::-webkit-scrollbar-thumb {
     .intro h1{
         font-size: 6vmin;
         mix-blend-mode : normal;
+        border-bottom: 2px solid rgb(74, 74, 255);
+
     }
     .warningX {
         top: 150px;
