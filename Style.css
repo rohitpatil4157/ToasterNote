@@ -19,6 +19,27 @@ body {
 
 }
 
+.Video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+    mix-blend-mode: color-dodge;
+    overflow: hidden;
+
+}
+
+
+.Video video,
+.Video iframe {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* background-size: 100% 100%; */
+
+}
+
 
 body::-webkit-scrollbar {
     width: 5px;
@@ -29,26 +50,6 @@ body::-webkit-scrollbar-thumb {
     width: 5px;
     border-radius: 5px;
     background-color: rgb(109, 147, 243);
-}
-
-
-.Video {
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 100%;
-    z-index: -100;
-    mix-blend-mode: color-dodge;
-    overflow: hidden;
-
-}
-
-.Video video {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
 }
 
 .intro {
@@ -82,17 +83,22 @@ body::-webkit-scrollbar-thumb {
     text-align: left;
 }
 
-.intro h1 {
+h1 {
+    color: white;
+    /* margin: 0.6em 14.125em; */
+    margin: 0.6em auto;
+    padding-bottom: 10px;
+    border-bottom: 5px solid rgb(74, 74, 255);
+    border-left: 5px solid rgb(74, 74, 255);
+    /* padding: 10px; */
+    /* width: calc(12em - 60px); */
+    /* align-self: baseline; */
     color: rgb(25, 24, 24);
     background-color: aliceblue;
     border-radius: 100vmax;
-    margin: 0.6em auto;
+    /* border: none; */
     padding: 8px;
-    padding-bottom: 10px;
-    border-bottom: 5px solid rgb(74, 74, 255);
     mix-blend-mode: difference;
-
-   
 }
 
 .intro h1 i {
@@ -101,6 +107,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .intro #addBtn {
+    position: relative;
     padding: 10px 20px;
     color: white;
     background-color: rgb(74, 74, 255);
@@ -110,9 +117,29 @@ body::-webkit-scrollbar-thumb {
     transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.intro #addBtn:hover {
+.intro #addBtn::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    clip-path: circle(100%);
+    opacity: 0;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+}
+
+/* .intro #addBtn:hover {
     background-color: rgb(122, 122, 252);
 
+} */
+
+
+.intro #addBtn:active:before {
+    clip-path: circle(1% at 50% 50%);
+    opacity: 1;
 
 }
 
@@ -193,6 +220,7 @@ body::-webkit-scrollbar-thumb {
     font-size: 12px;
 }
 
+/* Not in Use */
 .container .notes .sound {
     position: absolute;
     top: 4px;
@@ -232,6 +260,7 @@ body::-webkit-scrollbar-thumb {
     color: whitesmoke;
     cursor: pointer;
     opacity: 1;
+    user-select: none;
     transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -327,6 +356,7 @@ body::-webkit-scrollbar-thumb {
         'opsz' 48
 }
 
+
 .warning p {
     padding-right: 2px;
 
@@ -364,14 +394,21 @@ body::-webkit-scrollbar-thumb {
 
     }
 }
+
 @media only screen and (max-width: 80em) {
     body {
         overflow-x: hidden;
     }
 
     .intro h1 {
-/*         font-size: 5.9vw */
-        font-size: 8vmin;
+        /* display: inline-block; */
+        /* font-size: calc(1em + 80%); */
+        /* font-size: 1.5em;
+        font-size: 8vmin; */
+        /* font-size: 8vmin; */
+        font-size: 5.9vw;
+
+
     }
 
     .intro h1 i {
@@ -383,20 +420,50 @@ body::-webkit-scrollbar-thumb {
         min-width: 88%;
         max-width: 88%;
     }
+
 }
+
 @media only screen and (max-width: 430px) {
-    body{
-        background-image: url('./16\ Backgrounds\ That\ Will\ Brighten\ Your\ Day\ Every\ Time\ You\ Check\ Your\ Phone.jfif');
-    }
-    .intro h1{
+
+    .intro h1 {
+        /* width: calc(11em - 30px); */
+        background-color: aliceblue;
+        color: black;
+        color: rgb(25, 24, 24);
+        background-color: aliceblue;
+        border-radius: 100vmax;
+        padding: 8px;
         font-size: 6vmin;
-        mix-blend-mode : normal;
+        mix-blend-mode: normal;
         border-bottom: 2px solid rgb(74, 74, 255);
 
     }
+
+    body {
+        background-image: url('https://images.unsplash.com/photo-1569982175971-d92b01cf8694?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8N3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60');
+    }
+
+    .container {
+        height: 500px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .container::-webkit-scrollbar {
+        width: 5px;
+        background-color: transparent;
+    }
+
+    .container::-webkit-scrollbar-thumb {
+        width: 5px;
+        border-radius: 5px;
+        background-color: rgb(109, 147, 243);
+    }
+
     .warningX {
-        top: 150px;
-        
+        /* width: calc(15em + 10%);
+        height: 3%; */
+        top: 150px
     }
 
 }
