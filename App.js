@@ -79,7 +79,7 @@ function clipBoard() {
 
             copyBtn[index].classList.toggle('goUp');
             navigator.clipboard.writeText(copiedText);
-            navigator.vibrate([50, 50, 50])
+            navigator.vibrate([0, 50, 90])
 
             setTimeout(() => {
                 copyBtn[index].classList.remove('goUp');
@@ -153,11 +153,11 @@ function deleteNote(index) {
         showNote()
         clipBoard();
 
-    }, 1000)
-    document.addEventListener('dblclick', () => {
-        clearTimeout(setVal)
-        f1.notify('Cancelled')
-    })
+    }, 100)
+    // document.addEventListener('dblclick', () => {
+    //     clearTimeout(setVal)
+    //     f1.notify('Cancelled')
+    // })
 
 }
 
