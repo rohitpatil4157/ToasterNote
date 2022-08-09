@@ -26,6 +26,10 @@ class f1noter {
 }
 
 let f1 = new f1noter();
+// console.log(f1.notify('tere Wadil'))
+// function 
+
+
 
 addBtn.addEventListener('click', () => {
     let notes = localStorage.getItem('notes');
@@ -75,7 +79,7 @@ function clipBoard() {
 
             copyBtn[index].classList.toggle('goUp');
             navigator.clipboard.writeText(copiedText);
-            navigator.vibrate([0, 50, 90])
+            navigator.vibrate([50, 50, 50])
 
             setTimeout(() => {
                 copyBtn[index].classList.remove('goUp');
@@ -149,7 +153,7 @@ function deleteNote(index) {
         showNote()
         clipBoard();
 
-    }, 100)
+    }, 800)
     document.addEventListener('dblclick', () => {
         clearTimeout(setVal)
         f1.notify('Cancelled')
