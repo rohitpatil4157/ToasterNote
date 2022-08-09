@@ -126,7 +126,8 @@ body {
 .intro #addBtn {
     position: relative;
     padding: 10px 40px;
-    color: rgb(147, 37, 249);
+/*     rgb(147, 37, 249); */
+    color: rgba(74, 74, 255, 0.8);
     background-color: rgb(242, 242, 255);
     font-size: 17px;
     border: none;
@@ -567,10 +568,10 @@ body {
 
     }
 
-/*     body {
+    body {
         background-image: url('https://images.unsplash.com/photo-1569982175971-d92b01cf8694?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8N3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60');
         background-size: 100vh 100vh;
-    } */
+    }
     
     .main {
         overflow: hidden;
@@ -578,9 +579,10 @@ body {
 
 
     .container {
-        height: 514px;
-        overflow-y: auto;
+        height: 520px;
+        overflow: auto;
         overflow-x: hidden;
+        padding-bottom: 100px;
     }
 
     .container::-webkit-scrollbar {
