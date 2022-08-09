@@ -7,8 +7,8 @@ let Music = new Audio('./Popup.mp3');
 let Whoosh = new Audio('./Wooosh3.mp3');
 let addBtn = document.querySelector('#addBtn');
 let Video = document.querySelector('.Video').children[0];
-
-
+let AddXt = document.querySelector('#AddXt');
+AddXt.focus()
 
 class f1noter {
     constructor(name) {
@@ -33,7 +33,6 @@ let f1 = new f1noter();
 
 addBtn.addEventListener('click', () => {
     let notes = localStorage.getItem('notes');
-    let AddXt = document.querySelector('#AddXt');
 
     if (AddXt.value) {
         Video.play()
@@ -79,7 +78,7 @@ function clipBoard() {
 
             copyBtn[index].classList.toggle('goUp');
             navigator.clipboard.writeText(copiedText);
-            navigator.vibrate([50, 50, 50])
+            navigator.vibrate([0, 50, 90])
 
             setTimeout(() => {
                 copyBtn[index].classList.remove('goUp');
@@ -153,10 +152,10 @@ function deleteNote(index) {
         showNote()
         clipBoard();
 
-    }, 800)
+    }, 50)
     document.addEventListener('dblclick', () => {
         clearTimeout(setVal)
-        f1.notify('Cancelled')
+        // f1.notify('Cancelled')
     })
 
 }
