@@ -26,10 +26,6 @@ class f1noter {
 }
 
 let f1 = new f1noter();
-// console.log(f1.notify('tere Wadil'))
-// function 
-
-
 
 addBtn.addEventListener('click', () => {
     let notes = localStorage.getItem('notes');
@@ -154,10 +150,10 @@ function deleteNote(index) {
         clipBoard();
 
     }, 100)
-    // document.addEventListener('dblclick', () => {
-    //     clearTimeout(setVal)
-    //     f1.notify('Cancelled')
-    // })
+    document.addEventListener('dblclick', () => {
+        clearTimeout(setVal)
+        f1.notify('Cancelled')
+    })
 
 }
 
