@@ -16,6 +16,8 @@ body {
     align-items: center;
     flex-direction: column;
     overflow: hidden;
+    background-image: url('./Frame8.png');
+    object-fit: cover;
 
 }
 
@@ -580,7 +582,7 @@ body {
 
     body {
         background-image: url('./Frame8.png');
-        background-size: 100vh 100vh;
+        background-size: 100%;
     }
 
     /* .main {
