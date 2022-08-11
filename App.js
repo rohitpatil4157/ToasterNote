@@ -6,7 +6,7 @@ clipBoard();
 let Music = new Audio('./Popup.mp3');
 let Whoosh = new Audio('./Wooosh3.mp3');
 let addBtn = document.querySelector('#addBtn');
-let Video = document.querySelector('.Video').children[0];
+// let Video = document.querySelector('.Video').children[0];
 let AddXt = document.querySelector('#AddXt');
 AddXt.focus()
 
@@ -35,7 +35,7 @@ addBtn.addEventListener('click', () => {
     let notes = localStorage.getItem('notes');
 
     if (AddXt.value) {
-        Video.play()
+        // Video.play()
         Music.play()
 
         let notesObj;
@@ -61,7 +61,7 @@ addBtn.addEventListener('click', () => {
         return;  // Guard Clause saves us from writing else below
     }
 
-    Video.pause()
+    // Video.pause()
     f1.notify("Empty Notes aren't allowed :)")
 
 })
@@ -121,7 +121,7 @@ function showNote() {
                     <section class="notesTxt">
                         <pre>${elemText}</pre>
                     </section>
-                    <button id="${index}" onclick="deleteNote(this.id)"><i class="fa-solid fa-xmark"></i></button>
+                    <button id="${index}" onclick="deleteNote(this.id)"><i class="fa-solid fa-minus"></i></button>
                     <span class="time">${element.time}</span>
                     <p><span class="material-symbols-outlined ">content_copy</span></p>
                 </div>`
@@ -143,20 +143,34 @@ function deleteNote(index) {
     else {
         notesObj = JSON.parse(notes);
     }
-    f1.notify(`Your Note Has been deleted`);
-    navigator.vibrate(90)
-    Whoosh.play()
-    let setVal = setTimeout(() => {
-        notesObj.splice(index, 1);
-        localStorage.setItem('notes', JSON.stringify(notesObj));
-        showNote()
-        clipBoard();
 
-    }, 50)
-    document.addEventListener('dblclick', () => {
-        clearTimeout(setVal)
-        // f1.notify('Cancelled')
+    let deleteWrapper = document.querySelector('.delelteWrapper');
+    deleteWrapper.classList.add('show')
+
+    deleteWrapper.children[1].children[0].addEventListener('click', () => {
+        deleteWrapper.classList.remove('show')
+
     })
+    deleteWrapper.children[1].children[1].addEventListener('click', (e) => {
+        deleteWrapper.classList.remove('show');
+
+        f1.notify(`Your Note Has been deleted`);
+        Whoosh.play()
+
+        let setVal = setTimeout(() => {
+            notesObj.splice(index, 1);
+            localStorage.setItem('notes', JSON.stringify(notesObj));
+            showNote()
+            clipBoard();
+            navigator.vibrate(90)
+        }, 20)
+
+    })
+
+    // document.addEventListener('dblclick', () => {
+    //     clearTimeout(setVal)
+    //     f1.notify('Cancelled')
+    // })
 
 }
 
@@ -169,4 +183,3 @@ function getTime() {
     return dateForum;
 
 }
-
