@@ -126,7 +126,7 @@ body {
 }
 
 .intro #AddXt:focus {
-    box-shadow: 0px 0px 0px 2px #474bff;
+    box-shadow: inset 0px 0px 0px 100px #474aff2c;
     border-radius: 10px;
     backdrop-filter: blur(4px);
 }
