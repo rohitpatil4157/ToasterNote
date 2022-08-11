@@ -125,8 +125,9 @@ body {
 }
 
 .intro #AddXt:focus {
-    outline: 3px solid #474bff;
+    box-shadow: 0px 0px 0px 2px #474bff;
     border-radius: 10px;
+    backdrop-filter: blur(4px);
 }
 
 ::-webkit-input-placeholder {
