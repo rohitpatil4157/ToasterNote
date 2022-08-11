@@ -99,3 +99,27 @@
     transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
 }
+
+
+@media only screen and (max-width: 80em) {
+    .delelteWrapper {
+        width: calc(200px + 40vw);
+        height: 5.9rem;
+        /* margin: 0 max(90%, calc(1533px + 10vw)); */
+
+    }
+}
+
+@media only screen and (max-width: 430px) {
+
+    .deletebuttons {
+        right: 0.8rem;
+    }
+
+    .deletebuttons button:nth-child(1),
+    .deletebuttons button:nth-child(2) {
+        height: 2rem;
+
+    }
+
+}
