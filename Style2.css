@@ -8,16 +8,19 @@
     background-color: hsl(270deg 37% 93%);
     border-radius: 0.43rem;
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.622);
-    /* transform: translateY(10rem); */
+        /* transform: translateY(10rem) scale(0); */
     opacity: 0;
+    transform: scale(0);
+    transform-origin: bottom;
     transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 
 
 }
 
 .show.delelteWrapper {
-    /* transform: translateY(2rem); */
+    /* transform: translateY(2rem) scale(1); */
     opacity: 1;
+    transform: scale(1);
 }
 
 .show.delelteWrapper.body {
