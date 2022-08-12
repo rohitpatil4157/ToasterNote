@@ -30,7 +30,9 @@ let f1 = new f1noter();
 // function 
 
 
-
+AddXt.addEventListener('blur', () => {
+    addBtn.focus()
+})
 addBtn.addEventListener('click', () => {
     let notes = localStorage.getItem('notes');
 
