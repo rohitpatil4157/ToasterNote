@@ -633,7 +633,9 @@ body {
     }
 
     .warningX {
-        transform: translate(-50%, -190%);
+/*         transform: translate(-50%, -190%); */
+        bottom: 30px;
+
 
     }
 
