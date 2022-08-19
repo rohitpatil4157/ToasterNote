@@ -73,13 +73,15 @@ addBtn.addEventListener('click', () => {
         notesObj.push(MyObj);
         localStorage.setItem('notes', JSON.stringify(notesObj));
         AddXt.value = ""
-        showNote();
-        clipBoard()
+        setTimeout(() => {
+            showNote();
+            clipBoard()
+        }, 0);
         return;  // Guard Clause saves us from writing else below
     }
 
     // Video.pause()
-    debounce(() => f1.notify("Empty Notes aren't allowed :)"), 1000)()
+    debounce(() => f1.notify("Empty Notes aren't allowed :)"), 350)()
 
 
 })
@@ -133,7 +135,6 @@ function showNote() {
         html += `<div class="notes">
                     <div class="titleCircle">
                         <p>${index + 1}</p>
-                        <p><i class="fa-solid fa-play"></i></p>
                     </div>
                     
                     <section class="notesTxt">
