@@ -29,17 +29,6 @@ let f1 = new f1noter();
 // console.log(f1.notify('tere Wadil'))
 // function 
 
-//Debouce Function Does Performance Improvement Haha
-function debounce(fn, delay) {
-    let timeId;
-    return function (...args) {
-        clearTimeout(timeId)
-        timeId = setTimeout(() => {
-            fn.call(this, ...args)
-        }, delay)
-    }
-}
-
 AddXt.addEventListener('blur', () => addBtn.focus())
 
 addBtn.addEventListener('click', () => {
@@ -66,13 +55,12 @@ addBtn.addEventListener('click', () => {
         notesObj.push(MyObj);
         localStorage.setItem('notes', JSON.stringify(notesObj));
         AddXt.value = ""
-        setTimeout(() => {
-            showNote();
-            clipBoard()
-        }, 0);
+
+        showNote();
+        clipBoard()
         return;  // Guard Clause saves us from writing else below
     }
-   `debounce(() => f1.notify("Empty Notes aren't allowed :)"), 300)()
+   `f1.notify("Empty Notes aren't allowed :)"), 300)
     // Video.pause()
    
 })
@@ -167,7 +155,7 @@ function deleteNote(index) {
         localStorage.setItem('notes', JSON.stringify(notesObj));
         deleteWrapper.classList.remove('show');
         
-        let setVal = setTimeout(() => {
+        setTimeout(() => {
             showNote()
             navigator.vibrate(90)
             Whoosh.play()
