@@ -4,7 +4,7 @@ showNote();
 clipBoard();
 
 let Music = new Audio('./Popup.mp3');
-let Whoosh = new Audio('./Wooosh3.mp3');
+let Whoosh = new Audio('Misc. Code\Music.wav');
 let addBtn = document.querySelector('#addBtn');
 // let Video = document.querySelector('.Video').children[0];
 let AddXt = document.querySelector('#AddXt');
@@ -29,19 +29,35 @@ let f1 = new f1noter();
 // console.log(f1.notify('tere Wadil'))
 // function 
 
+function sleep(ms) {
+    return new Promise((res) => {
+        setTimeout(res, ms)
+    })
+}
+
+function debounce(fn, delay) {
+    let timeId;
+    return function (...args) {
+        clearTimeout(timeId)
+        timeId = setTimeout(() => {
+            fn.call(this, ...args)
+        }, delay)
+    }
+}
+
 AddXt.addEventListener('blur', () => {
     addBtn.focus()
 })
+
 
 addBtn.addEventListener('click', () => {
     let notes = localStorage.getItem('notes');
 
     if (AddXt.value) {
-        // Video.play()
         Music.play()
 
         let notesObj;
-        if (notes === null || AddXt == "") {
+        if (notes === null) {
             notesObj = []
         }
         else {
@@ -57,14 +73,15 @@ addBtn.addEventListener('click', () => {
         notesObj.push(MyObj);
         localStorage.setItem('notes', JSON.stringify(notesObj));
         AddXt.value = ""
-
         showNote();
         clipBoard()
         return;  // Guard Clause saves us from writing else below
     }
-   `f1.notify("Empty Notes aren't allowed :)"), 300)
+
     // Video.pause()
-   
+    debounce(() => f1.notify("Empty Notes aren't allowed :)"), 1000)()
+
+
 })
 
 
@@ -113,10 +130,10 @@ function showNote() {
 
         // // <h2>Note </h2>
         // <button id="${index}" onclick="deleteNote(this.id)"><i class="fa-solid fa-xmark"></i></button>
-        // <span class="time">${element.time}</span>
         html += `<div class="notes">
                     <div class="titleCircle">
                         <p>${index + 1}</p>
+                        <p><i class="fa-solid fa-play"></i></p>
                     </div>
                     
                     <section class="notesTxt">
@@ -150,20 +167,22 @@ function deleteNote(index) {
 
     deleteWrapper.children[1].children[0].addEventListener('click', () => {
         deleteWrapper.classList.remove('show')
+        //back button
+    });
 
-    })
+
     deleteWrapper.children[1].children[1].addEventListener('click', (e) => {
         notesObj.splice(index, 1);
         localStorage.setItem('notes', JSON.stringify(notesObj));
         deleteWrapper.classList.remove('show');
-        
+
         setTimeout(() => {
             showNote()
             navigator.vibrate(90)
             Whoosh.play()
             f1.notify(`Your Note Has been deleted`);
             clipBoard();
-        }, 1)
+        }, 1);
 
     })
 
@@ -178,7 +197,8 @@ function deleteNote(index) {
 function getTime() {
 
     let date = new Date();
-    let dateForum = `${date.toLocaleString('en-us', { day: 'numeric', month: 'short', year: 'numeric' })} | ${date.toLocaleString('en-us', { hour: 'numeric', minute: 'numeric' })}`;
+    let dateForum = `${date.toLocaleString('en-us', { day: 'numeric', month: 'short', year: 'numeric' })} | 
+                    ${date.toLocaleString('en-us', { hour: 'numeric', minute: 'numeric' })}`;
 
     return dateForum;
 
