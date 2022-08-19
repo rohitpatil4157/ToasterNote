@@ -4,7 +4,7 @@ showNote();
 clipBoard();
 
 let Music = new Audio('./Popup.mp3');
-let Whoosh = new Audio('Misc. Code\Music.wav');
+let Whoosh = new Audio('./Wooosh3.mp3');
 let addBtn = document.querySelector('#addBtn');
 // let Video = document.querySelector('.Video').children[0];
 let AddXt = document.querySelector('#AddXt');
