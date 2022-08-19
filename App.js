@@ -29,7 +29,9 @@ let f1 = new f1noter();
 // console.log(f1.notify('tere Wadil'))
 // function 
 
-AddXt.addEventListener('blur', () => addBtn.focus())
+AddXt.addEventListener('blur', () => {
+    addBtn.focus()
+})
 
 addBtn.addEventListener('click', () => {
     let notes = localStorage.getItem('notes');
@@ -176,8 +178,7 @@ function deleteNote(index) {
 function getTime() {
 
     let date = new Date();
-    let dateForum = `${date.toLocaleString('en-us', { day: 'numeric', month: 'short', year: 'numeric' })} |
-                     ${date.toLocaleString('en-us', { hour: 'numeric', minute: 'numeric' })}`;
+    let dateForum = `${date.toLocaleString('en-us', { day: 'numeric', month: 'short', year: 'numeric' })} | ${date.toLocaleString('en-us', { hour: 'numeric', minute: 'numeric' })}`;
 
     return dateForum;
 
