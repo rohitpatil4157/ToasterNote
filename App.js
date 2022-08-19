@@ -29,10 +29,19 @@ let f1 = new f1noter();
 // console.log(f1.notify('tere Wadil'))
 // function 
 
+//Debouce Function Does Performance Improvement Haha
+function debounce(fn, delay) {
+    let timeId;
+    return function (...args) {
+        clearTimeout(timeId)
+        timeId = setTimeout(() => {
+            fn.call(this, ...args)
+        }, delay)
+    }
+}
 
-AddXt.addEventListener('blur', () => {
-    addBtn.focus()
-})
+AddXt.addEventListener('blur', () => addBtn.focus())
+
 addBtn.addEventListener('click', () => {
     let notes = localStorage.getItem('notes');
 
@@ -57,15 +66,15 @@ addBtn.addEventListener('click', () => {
         notesObj.push(MyObj);
         localStorage.setItem('notes', JSON.stringify(notesObj));
         AddXt.value = ""
-        showNote();
-        clipBoard()
-
+        setTimeout(() => {
+            showNote();
+            clipBoard()
+        }, 0);
         return;  // Guard Clause saves us from writing else below
     }
-
+   `debounce(() => f1.notify("Empty Notes aren't allowed :)"), 300)()
     // Video.pause()
-    f1.notify("Empty Notes aren't allowed :)")
-
+   
 })
 
 
@@ -154,18 +163,17 @@ function deleteNote(index) {
 
     })
     deleteWrapper.children[1].children[1].addEventListener('click', (e) => {
+        notesObj.splice(index, 1);
+        localStorage.setItem('notes', JSON.stringify(notesObj));
         deleteWrapper.classList.remove('show');
-
-        f1.notify(`Your Note Has been deleted`);
-        Whoosh.play()
-
+        
         let setVal = setTimeout(() => {
-            notesObj.splice(index, 1);
-            localStorage.setItem('notes', JSON.stringify(notesObj));
             showNote()
-            clipBoard();
             navigator.vibrate(90)
-        }, 20)
+            Whoosh.play()
+            f1.notify(`Your Note Has been deleted`);
+            clipBoard();
+        }, 1)
 
     })
 
@@ -180,7 +188,8 @@ function deleteNote(index) {
 function getTime() {
 
     let date = new Date();
-    let dateForum = `${date.toLocaleString('en-us', { day: 'numeric', month: 'short', year: 'numeric' })} | ${date.toLocaleString('en-us', { hour: 'numeric', minute: 'numeric' })}`;
+    let dateForum = `${date.toLocaleString('en-us', { day: 'numeric', month: 'short', year: 'numeric' })} |
+                     ${date.toLocaleString('en-us', { hour: 'numeric', minute: 'numeric' })}`;
 
     return dateForum;
 
